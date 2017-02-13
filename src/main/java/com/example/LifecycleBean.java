@@ -12,6 +12,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 public class LifecycleBean implements BeanNameAware, BeanFactoryAware, ApplicationContextAware, InitializingBean, DisposableBean {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(LifecycleBean.class);
@@ -44,6 +47,11 @@ public class LifecycleBean implements BeanNameAware, BeanFactoryAware, Applicati
         LOGGER.info("beanPostProcessorsPreInitialization()");
     }
 
+    /*@PostConstruct
+    public void postConstruct() {
+        LOGGER.info("postConstruct()");
+    }*/
+
     @Override
     public void afterPropertiesSet() throws Exception {
         LOGGER.info("InitializingBean's afterPropertiesSet()");
@@ -56,6 +64,11 @@ public class LifecycleBean implements BeanNameAware, BeanFactoryAware, Applicati
     public void beanPostProcessorsPostInitialization() {
         LOGGER.info("beanPostProcessorsPostInitialization()");
     }
+
+    /*@PreDestroy
+    public void preDestroy() {
+        LOGGER.info("preDestroy()");
+    }*/
 
     @Override
     public void destroy() throws Exception {
