@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
  * @author Vit Herain
  */
 @Service
-@Scope(value = "request", proxyMode = ScopedProxyMode.TARGET_CLASS)
+@Scope(value = "prototype", proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class MessageServiceImpl implements MessageService {
 
     private static int COUNT = 0;
